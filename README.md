@@ -14,7 +14,7 @@ Sau khi install file apk vào máy ảo LDPlayer thì mình sẽ tiến hành m�
 
 Popup báo là "Root Detected", khi click "OK" thì chương trình sẽ đóng luôn.
 
-=> Vậy là bước đầu tiên của chúng ta sẽ là bypass được phần check root trước.
+=> Vậy là bước đầu tiên của chúng ta cần sẽ là bypass được phần check root trước.
 
 Cấu trúc khi decompile bằng bytecode viewer:
 ```
