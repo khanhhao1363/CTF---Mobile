@@ -8,7 +8,7 @@ Link để tải file apk: [UnCrackable-Level1.apk](https://mas.owasp.org/crackm
 
 ![ảnh](https://github.com/user-attachments/assets/e78ffd98-7a5e-45d7-8f11-86d05c99964e)
 
-Sau khi install file apk vào máy ảo LDPlayer thì mình sẽ tiến hành mở app và xem hành vi của app trông như thế nào.
+Sau khi install file apk vào máy ảo LDPlayer thì mình sẽ tiến hành mở app và xem hành vi của nó trông như thế nào.
 
 ![ảnh](https://github.com/user-attachments/assets/a6373bca-c1aa-48bf-bbaf-9c9960571c99)
 
