@@ -116,7 +116,7 @@ Chỉ cần 3 hàm này luôn return về false là ngon. Kiểu `const/4 v0`, `
 
 Như mình đã đề cập trước đó, Class c chính là mấu chốt để chúng ta có thể bypass check root, nên sẽ focus vào đây để patching.
 
-Code smali đã patching: [c.smali](https://github.com/khanhhao1363/Mobile/blob/main/c.smali)
+Code smali đã sửa: [c.smali](https://github.com/khanhhao1363/Mobile/blob/main/c.smali)
 
 Sau khi sửa code xong thì chúng ta sẽ build lại bằng apktool: `apktool b "D:\LDPlayer\tools\UnCrackable-Level1"`
 
