@@ -116,6 +116,78 @@ Chỉ cần 3 hàm này luôn return về false là ngon. Kiểu `const/4 v0`, `
 
 Như mình đã đề cập trước đó, Class c chính là mấu chốt để chúng ta có thể bypass check root, nên sẽ focus vào đây để patching.
 
+Code smali đã patching: [c.smali](https://github.com/khanhhao1363/Mobile/blob/main/c.smali)
+
+Sau khi sửa code xong thì chúng ta sẽ build lại bằng apktool: `apktool b "D:\LDPlayer\tools\UnCrackable-Level1"`
+
+![ảnh](https://github.com/user-attachments/assets/59e7ee0c-51bd-4f15-afac-6aabcc99af0b)
+
+Sau khi recompile lại thì chúng ta cần sign trước khi install.
+Đầu tiên tạo một cái key: `keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 1000`
+Sau đó sử dụng jarsigner với key vừa tạo: `jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore "D:\LDPlayer\tools\UnCrackable-Level1\dist\UnCrackable-Level1.apk" alias_name`
+
+Sau khi sign xong thì tiến hành install nàoooo.
+
+![ảnh](https://github.com/user-attachments/assets/70207731-2eca-46a1-bc8a-3892c3374bf7)
+
+![ảnh](https://github.com/user-attachments/assets/f5dc7b2a-b4a6-429f-91a9-400d481b5900)
+
+Cách 2: hook bằng Frida
+
+Kinh nghiệm của mình thì khi hook vào code java sẽ đơn giản hơn khi hook native, vì với source code native thì sẽ hổ trợ nhiều API khác nhau và chúng ta cần tìm đúng địa chỉ của hàm cần hook, có thể tùy từng trường hợp để lựa chọn các API cần thiết. Nhưng khi hook vào phần mã nguồn Java chúng ta chỉ cần quan tâm đến 2 API chính là `java.use()` và `java.choose()`.
+
+Trong trường hợp này mình sẽ sử dụng `java.use()` để hook hàm `sg.vantagepoint.a.a.a()` và sửa nội dung hàm ngay trước khi hàm đó được chạy. Tức là hàm này sẽ gọi instance của chính nó trước khi bị hook.
+
+Script để hook như sau:
+
+```
+import frida
+import sys
+import time
+
+def onMessage(message, data):
+    print(message)
+
+package = "owasp.mstg.uncrackable1"
+
+jscode = """
+Java.perform(function () {
+    send("[-] Starting hooks sg.vantagepoint.a.a");
+    var aes_decrypt = Java.use("sg.vantagepoint.a.a");
+    aes_decrypt.a.implementation = function(var_0, var_1) {
+        var ret = this.a.call(this, var_0, var_1);
+        var flag = "";
+        
+        for (var i=0; i < ret.length; i++){
+            flag += String.fromCharCode(ret[i]);
+        }
+        send("[*] Decrypted flag: " + flag);
+
+        return ret;
+    };
+});
+"""
+
+device = frida.get_usb_device()
+pid = device.spawn([package])
+process = device.attach(pid)
+script = process.create_script(jscode)
+script.on("message", onMessage)
+print("[*] Hooking", package)
+script.load()
+device.resume(pid)
+sys.stdin.read()
+
+```
+
+Kết quả hook:
+
+![ảnh](https://github.com/user-attachments/assets/308f6bec-0fd9-4026-ae46-9a8d74b8a30b)
+
+Get flag thành công!!
+
+
+
 
 
 
