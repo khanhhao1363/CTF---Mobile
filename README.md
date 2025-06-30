@@ -2,7 +2,7 @@
 
 Link để tải file apk: [UnCrackable-Level1.apk](https://mas.owasp.org/crackmes/Android#android-uncrackable-l1)
 
-Đây là một challenge của OWASP được thiết kế để bypass các cơ chế bảo mật trên ứng dụng Android. Hôm nay mình sẽ
+Đây là một challenge của OWASP được thiết kế để bypass các cơ chế bảo mật trên ứng dụng Android. Hôm nay mình sẽ write-up lại quá trình bypass và get flag.
 
 ## Chạy thử ứng dụng và phân tích sơ bộ
 
