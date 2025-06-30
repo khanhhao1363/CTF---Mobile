@@ -134,7 +134,7 @@ Sau khi sign xong thì tiến hành install nàoooo.
 
 ![ảnh](https://github.com/user-attachments/assets/f5dc7b2a-b4a6-429f-91a9-400d481b5900)
 
-Cách 2: hook bằng Frida
+### Cách 2: hook bằng Frida
 
 Kinh nghiệm của mình thì khi hook vào code java sẽ đơn giản hơn khi hook native, vì với source code native thì sẽ hổ trợ nhiều API khác nhau và chúng ta cần tìm đúng địa chỉ của hàm cần hook, có thể tùy từng trường hợp để lựa chọn các API cần thiết. Nhưng khi hook vào phần mã nguồn Java chúng ta chỉ cần quan tâm đến 2 API chính là `java.use()` và `java.choose()`.
 
