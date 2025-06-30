@@ -123,7 +123,9 @@ Sau khi sửa code xong thì chúng ta sẽ build lại bằng apktool: `apktool
 ![ảnh](https://github.com/user-attachments/assets/59e7ee0c-51bd-4f15-afac-6aabcc99af0b)
 
 Sau khi recompile lại thì chúng ta cần sign trước khi install.
+
 Đầu tiên tạo một cái key: `keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 1000`
+
 Sau đó sử dụng jarsigner với key vừa tạo: `jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore "D:\LDPlayer\tools\UnCrackable-Level1\dist\UnCrackable-Level1.apk" alias_name`
 
 Sau khi sign xong thì tiến hành install nàoooo.
