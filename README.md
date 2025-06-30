@@ -112,7 +112,8 @@ Hàm `a()` Kiểm tra file su trong các thư mục hệ thống, hàm `b()` d�
 ![ảnh](https://github.com/user-attachments/assets/9ed8715d-fcf5-4b3b-a02a-a830d2fc2482)
 
 Khi có được source code smali, chúng ta sẽ tiến hành sửa lại code của 3 hàm `c.a()`, `c.b()` và `c.c()` trong smali/sg/vantagepoint/a
-Chỉ cần 3 hàm này luôn return về false là ngon. Kiểu `const/4 v0`, `0x1` → c`onst/4 v0`, `0x0`
+
+Chỉ cần 3 hàm này luôn return về false là ngon. Kiểu `const/4 v0`, `0x1` → `const/4 v0`, `0x0`
 
 Như mình đã đề cập trước đó, Class c chính là mấu chốt để chúng ta có thể bypass check root, nên sẽ focus vào đây để patching.
 
