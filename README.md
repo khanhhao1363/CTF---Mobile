@@ -55,7 +55,7 @@ public static boolean a() {
 }
 ```
 
-Nếu ai đã từng root máy hoặc dùng Linux, chắc bạn biết su chính là binary dùng để thực thi lệnh với quyền root. Trên máy đã root, su thường nằm ở các path như /system/xbin, /system/bin,...
+Nếu ai đã từng root máy hoặc dùng Linux, chắc sẽ biết su chính là binary dùng để thực thi lệnh với quyền root. Trên máy đã root, su thường nằm ở các path như /system/xbin, /system/bin,...
 Chỉ cần tìm thấy file `su` trong bất kỳ thư mục nào trong PATH → return true. Đây là dấu hiệu đầu tiên mà ứng dụng dựa vào để phát hiện root.
 
 ```
