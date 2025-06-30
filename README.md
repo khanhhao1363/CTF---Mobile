@@ -67,8 +67,8 @@ public static boolean b() {
 ### Hàm `b()` dựa vào `Build.TAGS`
 Ở đây, app truy cập vào trường Build.TAGS một thông tin build-in sẵn của Android để xem ROM đang chạy trên thiết bị có dấu hiệu là bản chưa chính thức hay không.
 Cụ thể: 
-* Nếu bạn dùng ROM chính thức từ nhà sản xuất → thường là "release-keys"
-* Còn nếu bạn build thủ công từ AOSP hoặc cài ROM cook → khả năng cao sẽ có "test-keys"
+* Nếu dùng ROM chính thức từ nhà sản xuất → thường là "release-keys"
+* Còn nếu build thủ công từ AOSP hoặc cài ROM cook → khả năng cao sẽ có "test-keys"
 
 Vì vậy, nếu `Build.TAGS` chứa "test-keys" → app cho rằng đây là một môi trường có khả năng đã bị root.
 
